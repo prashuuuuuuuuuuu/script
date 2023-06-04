@@ -5,12 +5,22 @@ variable "aws_region" {
 
 variable "vpc_cidr_block" {
   description = "CIDR block for the VPC"
-  default     = "10.0.0.0/16"
+  default     = "20.0.0.0/16"
+}
+
+variable "vpc_tag"{
+  description = "VPC-tag"
+  value = "vpc1"
 }
 
 variable "subnet_cidr_block" {
   description = "CIDR block for the subnet"
-  default     = "10.0.0.0/24"
+  default     = "20.0.0.0/24"
+}
+
+variable "subnet_tag"{
+  description = "subnet-tag"
+  value = "subnet1"
 }
 
 variable "peer_vpc_id" {
