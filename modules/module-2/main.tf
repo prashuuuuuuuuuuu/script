@@ -117,6 +117,6 @@ resource "aws_security_group" "sg_public" {
   }
 
   tags = {
-    Name = "FPOC-teraform_sg"
+    Name = "sg1"
   }
 }
