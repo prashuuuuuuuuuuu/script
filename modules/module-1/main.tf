@@ -6,7 +6,7 @@ resource "aws_vpc" "main" {
   cidr_block       = var.vpc_cidr_block
   enable_dns_hostnames = true
   tags = {
-    Name = "MainVPC"
+    Name = var.vpc_tag
   }
 }
 
@@ -16,7 +16,7 @@ resource "aws_subnet" "main" {
   availability_zone       = var.aws_region
   map_public_ip_on_launch = true
   tags = {
-    Name = "MainSubnet"
+    Name = var.subnet_tag
   }
 }
 
@@ -24,7 +24,7 @@ resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "MainInternetGateway"
+    Name = "igw1"
   }
 }
 
@@ -37,7 +37,7 @@ resource "aws_route_table" "main" {
   }
 
   tags = {
-    Name = "MainRouteTable"
+    Name = "routetable1"
   }
 }
 resource "aws_vpc_peering_connection" "vpc_peering" {
