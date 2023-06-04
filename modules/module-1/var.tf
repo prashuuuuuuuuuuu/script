@@ -1,23 +1,27 @@
-variable "my_vpc_cidr" {
-    type = string
-    default = "10.0.0.0/24"
+variable "aws_region" {
+  description = "AWS region"
+  default     = "us-east-1"
 }
-variable "my_vpc_tag" {
-    type = string
-    default = "my_assmt_vpc"
 
+variable "vpc_cidr_block" {
+  description = "CIDR block for the VPC"
+  default     = "10.0.0.0/16"
 }
-variable "vpc_id" {
-    type = string
+
+variable "subnet_cidr_block" {
+  description = "CIDR block for the subnet"
+  default     = "10.0.0.0/24"
 }
-variable "public_subnet1_cidr" {
-    type = string
-    default = "10.0.0.0/28"
+
+variable "peer_vpc_id" {
+  description = "ID of the peer VPC"
 }
-variable "public_subnet1_az" {
-    type = string
-    default = "ap-south-1a"
+
+variable "peer_vpc_region" {
+  description = "Region of the peer VPC"
+  default     = "us-west-2"
 }
-variable "public_subnet1_tag" {
-    type = string
-    default = "public_subnet_task1"
+
+variable "peer_vpc_cidr_block" {
+  description = "CIDR block of the peer VPC"
+}
