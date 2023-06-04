@@ -23,7 +23,7 @@ resource "aws_instance" "worker-1" {
 
 resource "aws_instance" "worker-1" {
   ami           = var.ami_instance
-  instance_type = var.instance_type2
+  instance_type = var.instance_type3
   subnet_id = var.subnet_id
   vpc_security_group_ids = [aws_security_group.sg_public.id]
   key_name = var.key_pair
