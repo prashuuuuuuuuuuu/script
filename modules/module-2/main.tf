@@ -1,4 +1,4 @@
-resource "aws_instance" "kubemaster" {
+resource "aws_instance" "master" {
   ami           = var.ami_instance
   instance_type = var.instance_type
   subnet_id = var.subnet_id
@@ -6,10 +6,10 @@ resource "aws_instance" "kubemaster" {
   key_name = var.key_pair
   associate_public_ip_address = true
   tags = {
-    Name = var.instance_name
+    Name = var.instance_name1
   }
 }
-resource "aws_instance" "worker_node" {
+resource "aws_instance" "worker-1" {
   ami           = var.ami_instance
   instance_type = var.instance_type2
   subnet_id = var.subnet_id
@@ -20,6 +20,20 @@ resource "aws_instance" "worker_node" {
     Name = var.instance_name2
   }
 }
+
+resource "aws_instance" "worker-1" {
+  ami           = var.ami_instance
+  instance_type = var.instance_type2
+  subnet_id = var.subnet_id
+  vpc_security_group_ids = [aws_security_group.sg_public.id]
+  key_name = var.key_pair
+  associate_public_ip_address = true
+  tags = {
+    Name = var.instance_name3
+  }
+}
+
+
 
 resource "aws_security_group" "sg_public" {
 
